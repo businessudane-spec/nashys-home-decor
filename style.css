@@ -857,8 +857,8 @@ footer.decor-footer {
 
 .art-card {
   position: relative;
-  flex: 0 0 220px; /* default portrait width, smaller overall */
-  height: 280px; /* smaller height */
+  flex: 0 0 350px; /* Equal landscape width */
+  height: 230px; /* Landscape ratio height, compact */
   background: transparent; /* No card background color */
   border: none;
   /* Soft hanging wall shadow effect */
@@ -867,10 +867,6 @@ footer.decor-footer {
   transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s;
   display: flex;
   flex-direction: column;
-}
-
-.art-card.landscape {
-  flex: 0 0 380px; /* landscape cards inbetween */
 }
 
 .art-card:hover {
@@ -931,11 +927,8 @@ footer.decor-footer {
 
 @media (max-width: 1024px) {
   .art-card {
-    flex: 0 0 190px;
-    height: 240px;
-  }
-  .art-card.landscape {
-    flex: 0 0 320px;
+    flex: 0 0 290px;
+    height: 195px;
   }
 }
 
@@ -944,10 +937,7 @@ footer.decor-footer {
     padding: 0 3.5rem;
   }
   .art-card {
-    flex: 0 0 170px;
-    height: 220px;
-  }
-  .art-card.landscape {
-    flex: 0 0 280px;
+    flex: 0 0 250px;
+    height: 170px;
   }
 }
