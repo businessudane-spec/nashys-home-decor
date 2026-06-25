@@ -72,14 +72,12 @@ document.addEventListener('DOMContentLoaded', () => {
     
     function updateSlider() {
       if (cards.length === 0) return;
-      const cardWidth = cards[0].offsetWidth;
-      const trackStyle = window.getComputedStyle(track);
-      const gap = parseFloat(trackStyle.gap) || 40;
-      const step = cardWidth + gap;
+      
+      const targetCard = cards[currentIndex];
+      const targetOffset = targetCard.offsetLeft - track.offsetLeft;
       
       const wrapperWidth = track.parentElement.offsetWidth;
       const maxOffset = track.scrollWidth - wrapperWidth + 32;
-      const targetOffset = currentIndex * step;
       
       track.style.transform = `translateX(-${Math.min(targetOffset, Math.max(0, maxOffset))}px)`;
     }
@@ -95,12 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     if (nextBtn) {
       nextBtn.addEventListener('click', () => {
-        const wrapperWidth = track.parentElement.offsetWidth;
-        const cardWidth = cards[0].offsetWidth;
-        const gap = parseFloat(window.getComputedStyle(track).gap) || 40;
-        const visibleCards = Math.floor(wrapperWidth / (cardWidth + gap));
-        
-        if (currentIndex < cards.length - visibleCards) {
+        if (currentIndex < cards.length - 1) {
           currentIndex++;
           updateSlider();
         }
