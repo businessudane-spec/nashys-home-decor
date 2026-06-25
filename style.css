@@ -826,7 +826,7 @@ footer.decor-footer {
 .gallery-section {
   position: relative;
   overflow: hidden;
-  padding: 8rem 0;
+  padding: 3rem 0; /* Reduced padding to make section smaller */
   background: #4a0e17; /* Rich premium maroon wall background */
 }
 
@@ -861,7 +861,7 @@ footer.decor-footer {
   background: transparent; /* No card background color */
   border: none;
   /* Soft hanging wall shadow effect */
-  box-shadow: 0 20px 45px rgba(0,0,0,0.5);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.5);
   overflow: hidden;
   transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s;
   display: flex;
@@ -869,18 +869,18 @@ footer.decor-footer {
 }
 
 .art-card.portrait {
-  flex: 0 0 220px;
-  height: 280px; /* Taller portrait height */
+  flex: 0 0 160px;
+  height: 200px; /* Reduced portrait height */
 }
 
 .art-card.landscape {
-  flex: 0 0 380px;
-  height: 210px; /* Shorter landscape height for realistic aspect ratios */
+  flex: 0 0 280px;
+  height: 150px; /* Reduced landscape height */
 }
 
 .art-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 30px 60px rgba(0,0,0,0.65);
+  transform: translateY(-8px);
+  box-shadow: 0 25px 50px rgba(0,0,0,0.65);
 }
 
 .art-card-inner {
@@ -902,27 +902,29 @@ footer.decor-footer {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 52px;
-  height: 52px;
+  width: 48px; /* Slightly smaller arrows */
+  height: 48px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.12);
   backdrop-filter: blur(15px);
-  border: 1px solid rgba(255, 255, 255, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.22);
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
   z-index: 20;
   transition: var(--transition-smooth);
 }
 
 .gallery-arrow svg {
   stroke: #fff;
+  width: 20px;
+  height: 20px;
 }
 
 .gallery-arrow:hover {
-  background: rgba(255, 255, 255, 0.3);
-  border-color: rgba(255, 255, 255, 0.45);
+  background: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.4);
   transform: translateY(-50%) scale(1.08);
 }
 
@@ -936,12 +938,12 @@ footer.decor-footer {
 
 @media (max-width: 1024px) {
   .art-card.portrait {
-    flex: 0 0 190px;
-    height: 240px;
+    flex: 0 0 130px;
+    height: 170px;
   }
   .art-card.landscape {
-    flex: 0 0 320px;
-    height: 180px;
+    flex: 0 0 230px;
+    height: 125px;
   }
 }
 
@@ -950,11 +952,11 @@ footer.decor-footer {
     padding: 0 3.5rem;
   }
   .art-card.portrait {
-    flex: 0 0 160px;
-    height: 200px;
+    flex: 0 0 110px;
+    height: 145px;
   }
   .art-card.landscape {
-    flex: 0 0 270px;
-    height: 150px;
+    flex: 0 0 200px;
+    height: 110px;
   }
 }

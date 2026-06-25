@@ -82,21 +82,33 @@ document.addEventListener('DOMContentLoaded', () => {
       track.style.transform = `translateX(-${Math.min(targetOffset, Math.max(0, maxOffset))}px)`;
     }
     
+    // Autoplay Loop Logic
+    let autoplay = setInterval(() => {
+      currentIndex = (currentIndex + 1) % cards.length;
+      updateSlider();
+    }, 3000);
+    
+    function resetAutoplay() {
+      clearInterval(autoplay);
+      autoplay = setInterval(() => {
+        currentIndex = (currentIndex + 1) % cards.length;
+        updateSlider();
+      }, 3000);
+    }
+    
     if (prevBtn) {
       prevBtn.addEventListener('click', () => {
-        if (currentIndex > 0) {
-          currentIndex--;
-          updateSlider();
-        }
+        currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+        updateSlider();
+        resetAutoplay();
       });
     }
     
     if (nextBtn) {
       nextBtn.addEventListener('click', () => {
-        if (currentIndex < cards.length - 1) {
-          currentIndex++;
-          updateSlider();
-        }
+        currentIndex = (currentIndex + 1) % cards.length;
+        updateSlider();
+        resetAutoplay();
       });
     }
     
