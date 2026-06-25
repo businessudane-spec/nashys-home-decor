@@ -1,18 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // --- Hover Video Playback Logic ---
-  // Plays non-autoplaying videos in the exhibition and center artwork on hover
-  const videoContainers = document.querySelectorAll('.tilted-img-wrap, .middle-artwork-inner');
-  videoContainers.forEach(container => {
-    const video = container.querySelector('video');
-    if (video) {
-      container.addEventListener('mouseenter', () => {
-        video.play().catch(err => {});
-      });
-      container.addEventListener('mouseleave', () => {
-        video.pause();
-      });
-    }
-  });
 
   // --- 3D Mouse Tilt Effect for Middle Artwork ---
   const centerArtwork = document.getElementById('centerArtwork');
