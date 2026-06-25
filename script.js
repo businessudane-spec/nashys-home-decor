@@ -61,4 +61,58 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // --- Horizontal Gallery Slider Logic ---
+  const track = document.getElementById('galleryTrack');
+  const prevBtn = document.getElementById('galleryPrev');
+  const nextBtn = document.getElementById('galleryNext');
+  
+  if (track) {
+    const cards = track.querySelectorAll('.art-card');
+    let currentIndex = 0;
+    
+    function updateSlider() {
+      if (cards.length === 0) return;
+      
+      const targetCard = cards[currentIndex];
+      const targetOffset = targetCard.offsetLeft - track.offsetLeft;
+      
+      const wrapperWidth = track.parentElement.offsetWidth;
+      const maxOffset = track.scrollWidth - wrapperWidth;
+      
+      track.style.transform = `translateX(-${Math.min(targetOffset, Math.max(0, maxOffset))}px)`;
+    }
+    
+    // Autoplay Loop Logic
+    let autoplay = setInterval(() => {
+      currentIndex = (currentIndex + 1) % cards.length;
+      updateSlider();
+    }, 3000);
+    
+    function resetAutoplay() {
+      clearInterval(autoplay);
+      autoplay = setInterval(() => {
+        currentIndex = (currentIndex + 1) % cards.length;
+        updateSlider();
+      }, 3000);
+    }
+    
+    if (prevBtn) {
+      prevBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+        updateSlider();
+        resetAutoplay();
+      });
+    }
+    
+    if (nextBtn) {
+      nextBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % cards.length;
+        updateSlider();
+        resetAutoplay();
+      });
+    }
+    
+    window.addEventListener('resize', updateSlider);
+    setTimeout(updateSlider, 200);
+  }
 });
