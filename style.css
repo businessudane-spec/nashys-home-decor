@@ -954,3 +954,79 @@ footer.decor-footer {
     height: 110px;
   }
 }
+
+/* -------------------------------------
+   Introduction to Workshop Section
+----------------------------------------*/
+.workshop-section {
+  position: relative;
+  padding: 8rem 0;
+  background-color: #fff; /* Match next section light bg */
+}
+
+.workshop-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr; /* Text on left, video on right */
+  gap: 5rem;
+  align-items: center;
+}
+
+.workshop-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.workshop-text p {
+  font-size: 1.1rem;
+  color: #555;
+  line-height: 1.7;
+}
+
+.workshop-stats {
+  display: flex;
+  gap: 3rem;
+  margin-top: 2rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  padding-top: 2rem;
+}
+
+.stat-number {
+  font-family: var(--font-title);
+  font-size: 2.8rem;
+  font-weight: 800;
+  line-height: 1;
+  background: linear-gradient(90deg, #f5576c, #fda085);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #888;
+}
+
+.workshop-video-wrap {
+  width: 100%;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 25px 55px rgba(0, 0, 0, 0.08);
+  aspect-ratio: 16/9;
+  border: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+.workshop-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 1024px) {
+  .workshop-grid {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+}
