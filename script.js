@@ -61,58 +61,53 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // --- 3D Coverflow Carousel Logic ---
-  const cards = document.querySelectorAll('.coverflow-card');
-  const prevBtn = document.getElementById('coverflowPrev');
-  const nextBtn = document.getElementById('coverflowNext');
+  // --- Horizontal Gallery Slider Logic ---
+  const track = document.getElementById('galleryTrack');
+  const prevBtn = document.getElementById('galleryPrev');
+  const nextBtn = document.getElementById('galleryNext');
   
-  if (cards.length > 0) {
+  if (track) {
+    const cards = track.querySelectorAll('.art-card');
     let currentIndex = 0;
-    const totalCards = cards.length;
     
-    function updateCoverflow() {
-      cards.forEach((card, idx) => {
-        card.classList.remove('active', 'prev', 'next', 'far-prev', 'far-next');
-        
-        const diff = (idx - currentIndex + totalCards) % totalCards;
-        
-        if (diff === 0) {
-          card.classList.add('active');
-        } else if (diff === 1) {
-          card.classList.add('next');
-        } else if (diff === 2) {
-          card.classList.add('far-next');
-        } else if (diff === totalCards - 1) {
-          card.classList.add('prev');
-        } else if (diff === totalCards - 2) {
-          card.classList.add('far-prev');
-        }
-      });
+    function updateSlider() {
+      if (cards.length === 0) return;
+      const cardWidth = cards[0].offsetWidth;
+      const trackStyle = window.getComputedStyle(track);
+      const gap = parseFloat(trackStyle.gap) || 40;
+      const step = cardWidth + gap;
+      
+      const wrapperWidth = track.parentElement.offsetWidth;
+      const maxOffset = track.scrollWidth - wrapperWidth + 32;
+      const targetOffset = currentIndex * step;
+      
+      track.style.transform = `translateX(-${Math.min(targetOffset, Math.max(0, maxOffset))}px)`;
     }
     
     if (prevBtn) {
       prevBtn.addEventListener('click', () => {
-        currentIndex = (currentIndex - 1 + totalCards) % totalCards;
-        updateCoverflow();
+        if (currentIndex > 0) {
+          currentIndex--;
+          updateSlider();
+        }
       });
     }
     
     if (nextBtn) {
       nextBtn.addEventListener('click', () => {
-        currentIndex = (currentIndex + 1) % totalCards;
-        updateCoverflow();
+        const wrapperWidth = track.parentElement.offsetWidth;
+        const cardWidth = cards[0].offsetWidth;
+        const gap = parseFloat(window.getComputedStyle(track).gap) || 40;
+        const visibleCards = Math.floor(wrapperWidth / (cardWidth + gap));
+        
+        if (currentIndex < cards.length - visibleCards) {
+          currentIndex++;
+          updateSlider();
+        }
       });
     }
     
-    cards.forEach((card, idx) => {
-      card.addEventListener('click', () => {
-        if (currentIndex !== idx) {
-          currentIndex = idx;
-          updateCoverflow();
-        }
-      });
-    });
-    
-    updateCoverflow();
+    window.addEventListener('resize', updateSlider);
+    setTimeout(updateSlider, 200);
   }
 });
