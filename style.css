@@ -819,3 +819,165 @@ footer.decor-footer {
     text-align: center;
   }
 }
+
+/* -------------------------------------
+   3D Coverflow Carousel Section
+----------------------------------------*/
+.coverflow-section {
+  position: relative;
+  overflow: hidden;
+  padding: 8rem 0;
+  background: #fafafa;
+}
+
+.coverflow-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  height: 480px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1200px;
+}
+
+.coverflow-container {
+  position: relative;
+  width: 340px;
+  height: 400px;
+  transform-style: preserve-3d;
+}
+
+.coverflow-card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  border-radius: 28px;
+  box-shadow: var(--shadow-premium);
+  border: 1px solid rgba(0,0,0,0.03);
+  padding: 0.8rem;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s, z-index 0.8s;
+  opacity: 0;
+  pointer-events: none;
+  transform-style: preserve-3d;
+}
+
+.coverflow-card-inner {
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+}
+
+.coverflow-card-inner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.coverflow-card-title {
+  position: absolute;
+  bottom: 2rem;
+  left: 2rem;
+  right: 2rem;
+  color: #fff;
+  font-family: var(--font-title);
+  font-size: 1.8rem;
+  font-weight: 800;
+  text-shadow: 0 4px 15px rgba(0,0,0,0.55);
+  transform: translateZ(30px);
+  letter-spacing: -0.5px;
+  text-transform: uppercase;
+}
+
+/* Coverflow Card States */
+.coverflow-card.active {
+  opacity: 1;
+  pointer-events: all;
+  transform: translate3d(0, 0, 120px) rotateY(0deg);
+  z-index: 10;
+}
+
+.coverflow-card.prev {
+  opacity: 0.75;
+  pointer-events: all;
+  transform: translate3d(-180px, 0, 0px) rotateY(28deg) scale(0.9);
+  z-index: 5;
+}
+
+.coverflow-card.next {
+  opacity: 0.75;
+  pointer-events: all;
+  transform: translate3d(180px, 0, 0px) rotateY(-28deg) scale(0.9);
+  z-index: 5;
+}
+
+.coverflow-card.far-prev {
+  opacity: 0.35;
+  pointer-events: all;
+  transform: translate3d(-320px, 0, -100px) rotateY(45deg) scale(0.8);
+  z-index: 2;
+}
+
+.coverflow-card.far-next {
+  opacity: 0.35;
+  pointer-events: all;
+  transform: translate3d(320px, 0, -100px) rotateY(-45deg) scale(0.8);
+  z-index: 2;
+}
+
+/* Nav Arrows */
+.coverflow-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+  z-index: 20;
+  transition: var(--transition-smooth);
+}
+
+.coverflow-arrow:hover {
+  background: rgba(255, 255, 255, 0.75);
+  transform: translateY(-50%) scale(1.08);
+}
+
+.arrow-left {
+  left: 2rem;
+}
+
+.arrow-right {
+  right: 2rem;
+}
+
+@media (max-width: 768px) {
+  .coverflow-wrapper {
+    height: 380px;
+  }
+  .coverflow-container {
+    width: 260px;
+    height: 320px;
+  }
+  .coverflow-card.prev {
+    transform: translate3d(-80px, 0, -50px) rotateY(20deg) scale(0.85);
+  }
+  .coverflow-card.next {
+    transform: translate3d(80px, 0, -50px) rotateY(-20deg) scale(0.85);
+  }
+  .coverflow-card.far-prev, .coverflow-card.far-next {
+    display: none;
+  }
+}

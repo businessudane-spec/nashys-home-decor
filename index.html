@@ -32,6 +32,7 @@
     <nav class="pill-center">
       <ul class="nav-links">
         <li><a href="#home" class="clickable">Home</a></li>
+        <li><a href="#showroom" class="clickable">Swatches</a></li>
         <li><a href="#about" class="clickable">About</a></li>
         <li><a href="#process" class="clickable">Process</a></li>
         <li><a href="#explore" class="clickable">Exhibition</a></li>
@@ -55,6 +56,70 @@
   <!-- Hero Section (Full Background Gallery) -->
   <section class="hero-light" id="home">
     <!-- Visual background-image is set via CSS (.hero-light) -->
+  </section>
+
+  <!-- 3D Coverflow Carousel Section (Swatches Showroom) -->
+  <section class="coverflow-section" id="showroom">
+    <div style="text-align: center; margin-bottom: 2rem;">
+      <span class="section-tag">Swatches Showroom</span>
+      <h2 class="section-title">Tactile Texture Library</h2>
+    </div>
+    
+    <div class="coverflow-wrapper">
+      <!-- Arrows -->
+      <button class="coverflow-arrow arrow-left clickable" aria-label="Previous swatch" id="coverflowPrev">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="19" y1="12" x2="5" y2="12"></line>
+          <polyline points="12 19 5 12 12 5"></polyline>
+        </svg>
+      </button>
+      
+      <!-- Container -->
+      <div class="coverflow-container" id="coverflowContainer">
+        <!-- Card 1 -->
+        <div class="coverflow-card active clickable" data-index="0">
+          <div class="coverflow-card-inner">
+            <img src="assets/gallery-1.jpg" alt="Plaster Relief">
+            <div class="coverflow-card-title">Plaster Relief</div>
+          </div>
+        </div>
+        <!-- Card 2 -->
+        <div class="coverflow-card next clickable" data-index="1">
+          <div class="coverflow-card-inner">
+            <img src="assets/gallery-2.jpg" alt="Fluted Terrazzo">
+            <div class="coverflow-card-title">Fluted Terrazzo</div>
+          </div>
+        </div>
+        <!-- Card 3 -->
+        <div class="coverflow-card far-next clickable" data-index="2">
+          <div class="coverflow-card-inner">
+            <img src="assets/gallery-3.jpg" alt="Clay Limewash">
+            <div class="coverflow-card-title">Clay Limewash</div>
+          </div>
+        </div>
+        <!-- Card 4 -->
+        <div class="coverflow-card far-prev clickable" data-index="3">
+          <div class="coverflow-card-inner">
+            <img src="assets/gallery-4.jpg" alt="Metallic Gilded">
+            <div class="coverflow-card-title">Metallic Gilded</div>
+          </div>
+        </div>
+        <!-- Card 5 -->
+        <div class="coverflow-card prev clickable" data-index="4">
+          <div class="coverflow-card-inner">
+            <img src="assets/gallery-5.jpg" alt="Raw Belgian Linen">
+            <div class="coverflow-card-title">Raw Belgian Linen</div>
+          </div>
+        </div>
+      </div>
+      
+      <button class="coverflow-arrow arrow-right clickable" aria-label="Next swatch" id="coverflowNext">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+      </button>
+    </div>
   </section>
 
   <!-- About / Philosophy Section (Restored) -->
@@ -252,6 +317,7 @@
         <!-- Right Side Large Typography Links -->
         <div class="footer-right">
           <a href="#home" class="footer-huge-link clickable">Home</a>
+          <a href="#showroom" class="footer-huge-link clickable">Swatches</a>
           <a href="#about" class="footer-huge-link active clickable">About</a>
           <a href="#process" class="footer-huge-link clickable">Process</a>
           <a href="#explore" class="footer-huge-link clickable">Exhibition</a>

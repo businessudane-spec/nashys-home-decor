@@ -60,4 +60,59 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   }
+
+  // --- 3D Coverflow Carousel Logic ---
+  const cards = document.querySelectorAll('.coverflow-card');
+  const prevBtn = document.getElementById('coverflowPrev');
+  const nextBtn = document.getElementById('coverflowNext');
+  
+  if (cards.length > 0) {
+    let currentIndex = 0;
+    const totalCards = cards.length;
+    
+    function updateCoverflow() {
+      cards.forEach((card, idx) => {
+        card.classList.remove('active', 'prev', 'next', 'far-prev', 'far-next');
+        
+        const diff = (idx - currentIndex + totalCards) % totalCards;
+        
+        if (diff === 0) {
+          card.classList.add('active');
+        } else if (diff === 1) {
+          card.classList.add('next');
+        } else if (diff === 2) {
+          card.classList.add('far-next');
+        } else if (diff === totalCards - 1) {
+          card.classList.add('prev');
+        } else if (diff === totalCards - 2) {
+          card.classList.add('far-prev');
+        }
+      });
+    }
+    
+    if (prevBtn) {
+      prevBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + totalCards) % totalCards;
+        updateCoverflow();
+      });
+    }
+    
+    if (nextBtn) {
+      nextBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % totalCards;
+        updateCoverflow();
+      });
+    }
+    
+    cards.forEach((card, idx) => {
+      card.addEventListener('click', () => {
+        if (currentIndex !== idx) {
+          currentIndex = idx;
+          updateCoverflow();
+        }
+      });
+    });
+    
+    updateCoverflow();
+  }
 });
