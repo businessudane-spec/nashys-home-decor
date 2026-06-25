@@ -69,9 +69,17 @@ document.addEventListener('DOMContentLoaded', () => {
   if (track) {
     const cards = track.querySelectorAll('.art-card');
     let currentIndex = 0;
+    const originalCount = 5; // First set C1 to C5
+    let isTransitioning = false;
     
-    function updateSlider() {
+    function updateSlider(useTransition = true) {
       if (cards.length === 0) return;
+      
+      if (!useTransition) {
+        track.style.transition = 'none';
+      } else {
+        track.style.transition = '';
+      }
       
       let targetOffset = 0;
       const gap = 40; // 2.5rem = 40px
@@ -83,39 +91,77 @@ document.addEventListener('DOMContentLoaded', () => {
       const maxOffset = track.scrollWidth - wrapperWidth + 32;
       
       track.style.transform = `translateX(-${Math.min(targetOffset, Math.max(0, maxOffset))}px)`;
+      
+      if (!useTransition) {
+        // Force reflow to register instant transform
+        track.offsetWidth;
+      }
     }
     
     // Autoplay Loop Logic
     let autoplay = setInterval(() => {
-      currentIndex = (currentIndex + 1) % cards.length;
-      updateSlider();
+      handleNext();
     }, 3000);
     
     function resetAutoplay() {
       clearInterval(autoplay);
       autoplay = setInterval(() => {
-        currentIndex = (currentIndex + 1) % cards.length;
-        updateSlider();
+        handleNext();
       }, 3000);
     }
     
+    function handleNext() {
+      if (isTransitioning) return;
+      isTransitioning = true;
+      currentIndex++;
+      updateSlider(true);
+    }
+    
+    function handlePrev() {
+      if (isTransitioning) return;
+      
+      if (currentIndex === 0) {
+        // Snap instantly to index 5 (cloned C1)
+        currentIndex = originalCount;
+        updateSlider(false);
+        // Slide smoothly backward to index 4 (cloned C5)
+        setTimeout(() => {
+          isTransitioning = true;
+          currentIndex = originalCount - 1;
+          updateSlider(true);
+        }, 20);
+      } else {
+        isTransitioning = true;
+        currentIndex--;
+        updateSlider(true);
+      }
+    }
+    
+    track.addEventListener('transitionend', () => {
+      isTransitioning = false;
+      
+      // If we scrolled past C5 to index 5 (cloned C1), snap back instantly to index 0 (original C1)
+      if (currentIndex === originalCount) {
+        currentIndex = 0;
+        updateSlider(false);
+      }
+    });
+    
     if (prevBtn) {
       prevBtn.addEventListener('click', () => {
-        currentIndex = (currentIndex - 1 + cards.length) % cards.length;
-        updateSlider();
+        handlePrev();
         resetAutoplay();
       });
     }
     
     if (nextBtn) {
       nextBtn.addEventListener('click', () => {
-        currentIndex = (currentIndex + 1) % cards.length;
-        updateSlider();
+        handleNext();
         resetAutoplay();
       });
     }
     
-    window.addEventListener('resize', updateSlider);
-    setTimeout(updateSlider, 200);
+    window.addEventListener('resize', () => updateSlider(false));
+    setTimeout(() => updateSlider(false), 200);
   }
 });
