@@ -73,11 +73,14 @@ document.addEventListener('DOMContentLoaded', () => {
     function updateSlider() {
       if (cards.length === 0) return;
       
-      const targetCard = cards[currentIndex];
-      const targetOffset = targetCard.offsetLeft - track.offsetLeft;
+      let targetOffset = 0;
+      const gap = 40; // 2.5rem = 40px
+      for (let i = 0; i < currentIndex; i++) {
+        targetOffset += cards[i].offsetWidth + gap;
+      }
       
       const wrapperWidth = track.parentElement.offsetWidth;
-      const maxOffset = track.scrollWidth - wrapperWidth;
+      const maxOffset = track.scrollWidth - wrapperWidth + 32;
       
       track.style.transform = `translateX(-${Math.min(targetOffset, Math.max(0, maxOffset))}px)`;
     }
