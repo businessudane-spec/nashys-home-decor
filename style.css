@@ -1009,13 +1009,43 @@ footer.decor-footer {
   color: #888;
 }
 
-.workshop-video-wrap {
+.workshop-videos-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
   width: 100%;
-  border-radius: 28px;
+}
+
+.workshop-video-card {
+  position: relative;
+  border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 25px 55px rgba(0, 0, 0, 0.08);
-  aspect-ratio: 16/9;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.08);
+  aspect-ratio: 4/5;
   border: 1px solid rgba(0, 0, 0, 0.03);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s;
+}
+
+.workshop-video-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.14);
+}
+
+.workshop-video-badge {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  padding: 0.5rem 1rem;
+  border-radius: 30px;
+  font-family: var(--font-title);
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #333;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
 }
 
 .workshop-video {
@@ -1028,5 +1058,11 @@ footer.decor-footer {
   .workshop-grid {
     grid-template-columns: 1fr;
     gap: 4rem;
+  }
+}
+
+@media (max-width: 580px) {
+  .workshop-videos-grid {
+    grid-template-columns: 1fr;
   }
 }
