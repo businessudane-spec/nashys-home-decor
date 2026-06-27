@@ -1263,3 +1263,96 @@ footer.decor-footer {
     gap: 3rem;
   }
 }
+
+/* -------------------------------------
+   Responsive Overrides for Nav, Form, Testimonials & Manifesto
+----------------------------------------*/
+@media (max-width: 768px) {
+  /* Header Nav Pill scaling */
+  .pill-center {
+    padding: 0.6rem 1.5rem;
+    width: 92%;
+    max-width: 500px;
+  }
+  .pill-center .nav-links {
+    gap: 1.2rem;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .pill-center .nav-links a {
+    font-size: 0.72rem;
+    letter-spacing: 0.8px;
+  }
+  .logo-item {
+    font-size: 1.05rem !important;
+    margin: 0 0.4rem;
+  }
+  
+  /* Newsletter Section */
+  .newsletter-card {
+    padding: 3.5rem 2rem;
+    gap: 2.5rem;
+  }
+  .newsletter-title {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Header Nav Pill mobile compression */
+  .pill-center {
+    padding: 0.5rem 1rem;
+  }
+  .pill-center .nav-links {
+    gap: 0.7rem;
+  }
+  .pill-center .nav-links a {
+    font-size: 0.65rem;
+    letter-spacing: 0.4px;
+  }
+  .logo-item {
+    font-size: 0.95rem !important;
+    margin: 0 0.1rem;
+  }
+  
+  /* Newsletter Form vertical stack */
+  .newsletter-form {
+    flex-direction: column;
+    background: transparent;
+    border: none;
+    padding: 0;
+    border-radius: 0;
+    gap: 1rem;
+  }
+  .newsletter-input {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1.2rem 1.5rem;
+    border-radius: 50px;
+    width: 100%;
+  }
+  .newsletter-btn {
+    width: 100%;
+    text-align: center;
+    padding: 1.2rem;
+  }
+  
+  /* Testimonial slider card width limit */
+  .testimonial-card {
+    flex: 0 0 290px;
+    padding: 2rem 1.5rem;
+  }
+  .testimonial-quote {
+    font-size: 0.95rem;
+  }
+  
+  /* Manifesto headline size */
+  .manifesto-headline {
+    font-size: 1.6rem;
+    line-height: 1.4;
+    margin: 2rem 0 3.5rem 0;
+  }
+  .manifesto-section {
+    padding: 6rem 0;
+  }
+}
