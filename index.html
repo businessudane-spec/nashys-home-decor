@@ -35,13 +35,13 @@
         <li><a href="#showroom" class="clickable">Swatches</a></li>
         <li><a href="#workshop" class="clickable">Workshop</a></li>
         <li><a href="#about" class="clickable">About</a></li>
-        <li><a href="#process" class="clickable">Process</a></li>
+        <li><a href="#testimonials" class="clickable">Testimonials</a></li>
       </ul>
     </nav>
 
     <!-- Right Pill: Action CTA -->
     <div class="pill-right">
-      <a href="#explore" class="clickable">Connect</a>
+      <a href="#join-now" class="clickable">Connect</a>
     </div>
   </div>
 
@@ -252,35 +252,64 @@
     </div>
   </section>
 
-  <!-- Process Section (Restored) -->
-  <section class="process" id="process">
+  <!-- Newsletter Section (Join Now) -->
+  <section class="newsletter-section" id="join-now">
     <div class="container">
-      <div style="text-align: center; margin-bottom: 3rem;">
-        <span class="section-tag">Behind the Art</span>
-        <h2 class="section-title">The Tactile Process</h2>
-      </div>
-
-      <div class="process-steps">
-        <div class="step-card">
-          <div class="step-num">I</div>
-          <h3 class="step-title">Canvas & Substrate</h3>
-          <p class="step-desc">Stretching heavy belgian linen onto custom cedar frames, then prepping with organic animal glue and gesso to withstand heavy plaster layers.</p>
+      <div class="newsletter-card">
+        <div class="newsletter-content">
+          <span class="section-tag" style="color: rgba(255,255,255,0.6);">Join the Studio</span>
+          <h2 class="newsletter-title">Subscribe to the Studio Newsletter</h2>
+          <p class="newsletter-desc">Receive exclusive monthly updates on upcoming texture masterclasses, hands-on workshop enrollments, and raw mineral art guides.</p>
         </div>
-        <div class="step-card">
-          <div class="step-num">II</div>
-          <h3 class="step-title">Plaster Sculpting</h3>
-          <p class="step-desc">Layering marble dust plaster and clay slurries using custom palettes and metal spatulas, forming ridges, fissures, and smooth sweeps.</p>
-        </div>
-        <div class="step-card">
-          <div class="step-num">III</div>
-          <h3 class="step-title">Pigment Layering</h3>
-          <p class="step-desc">Applying fluid washes of natural mineral pigments (ochres, charcoal, iron oxides) so that the color deposits in the deep textured crevices.</p>
-        </div>
+        <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Thank you for joining!');">
+          <input type="email" placeholder="Enter your email address" class="newsletter-input" required>
+          <button type="submit" class="newsletter-btn clickable">Join Now</button>
+        </form>
       </div>
     </div>
   </section>
 
+  <!-- Testimonials Section -->
+  <section class="testimonials-section" id="testimonials">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 5rem;">
+        <span class="section-tag">Student & Architect Voices</span>
+        <h2 class="section-title">What Our Community Says</h2>
+      </div>
+      
+      <div class="testimonials-grid">
+        <!-- Testimonial 1 -->
+        <div class="testimonial-card">
+          <div class="testimonial-rating">★★★★★</div>
+          <p class="testimonial-quote">“The online workshop gave me the exact tools and confidence to introduce custom plaster relief panels into my commercial projects. It completely transformed my architecture design workflow.”</p>
+          <div class="testimonial-author">
+            <h4 class="author-name">Ananya Sen</h4>
+            <span class="author-title">Interior Architect</span>
+          </div>
+        </div>
 
+        <!-- Testimonial 2 -->
+        <div class="testimonial-card">
+          <div class="testimonial-rating">★★★★★</div>
+          <p class="testimonial-quote">“Layering mineral wash with clay is incredibly therapeutic. I joined the masterclass to learn a hobby, but now I’m receiving custom texture commissions from private clients!”</p>
+          <div class="testimonial-author">
+            <h4 class="author-name">Vikram Roy</h4>
+            <span class="author-title">Fine Artist & Designer</span>
+          </div>
+        </div>
+
+        <!-- Testimonial 3 -->
+        <div class="testimonial-card">
+          <div class="testimonial-rating">★★★★★</div>
+          <p class="testimonial-quote">“Nashys' video tutorials are exceptionally clear, and the texture library formulations are highly practical. This is by far the best online course for heritage wall craft.”</p>
+          <div class="testimonial-author">
+            <h4 class="author-name">Elena Rostova</h4>
+            <span class="author-title">Sculptural Artist</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- Redesigned Split Column Premium Footer (Reference Image 4) -->
   <footer class="decor-footer">
@@ -315,7 +344,7 @@
           <a href="#showroom" class="footer-huge-link clickable">Swatches</a>
           <a href="#workshop" class="footer-huge-link clickable">Workshop</a>
           <a href="#about" class="footer-huge-link active clickable">About</a>
-          <a href="#process" class="footer-huge-link clickable">Process</a>
+          <a href="#testimonials" class="footer-huge-link clickable">Testimonials</a>
         </div>
       </div>
 
