@@ -1066,3 +1066,72 @@ footer.decor-footer {
     grid-template-columns: 1fr;
   }
 }
+
+/* -------------------------------------
+   Manifesto / Creative Purpose Section
+----------------------------------------*/
+.manifesto-section {
+  position: relative;
+  padding: 10rem 0;
+  background-color: #4a0e17; /* Rich maroon background alternating */
+  color: #fff;
+}
+
+.manifesto-wrap {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.manifesto-headline {
+  font-family: var(--font-title);
+  font-size: 2.5rem;
+  font-weight: 300;
+  line-height: 1.45;
+  letter-spacing: -0.5px;
+  margin: 2.5rem 0 5.5rem 0;
+  color: #fff;
+}
+
+.manifesto-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4rem;
+}
+
+.manifesto-col {
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+  padding-top: 2rem;
+}
+
+.manifesto-num {
+  font-family: var(--font-title);
+  font-size: 1.5rem;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.4);
+  margin-bottom: 1rem;
+}
+
+.manifesto-col-title {
+  font-family: var(--font-title);
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #fff;
+  letter-spacing: -0.3px;
+}
+
+.manifesto-col-desc {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+@media (max-width: 1024px) {
+  .manifesto-headline {
+    font-size: 2.1rem;
+  }
+  .manifesto-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}
