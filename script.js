@@ -1,43 +1,101 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-  // --- 3D Mouse Tilt Effect for Middle Artwork ---
+  // --- Throttled 3D Mouse Tilt Effect for Middle Artwork ---
   const centerArtwork = document.getElementById('centerArtwork');
   if (centerArtwork) {
-    document.addEventListener('mousemove', (e) => {
+    let mouseX = 0, mouseY = 0;
+    let artCenterX = 0, artCenterY = 0;
+    let tickingMouse = false;
+
+    // Cache center coordinates on resize
+    function updateCenterCoords() {
       const rect = centerArtwork.getBoundingClientRect();
-      const artCenterX = rect.left + rect.width / 2;
-      const artCenterY = rect.top + rect.height / 2;
-      
-      const mouseX = e.clientX;
-      const mouseY = e.clientY;
-      
-      // Calculate rotation angles
-      const rotateY = ((mouseX - artCenterX) / window.innerWidth) * 45; // limit to 45 deg
-      const rotateX = -((mouseY - artCenterY) / window.innerHeight) * 45;
-      
-      centerArtwork.style.transform = `rotateY(${rotateY}deg) rotateX(${rotateX}deg) translateZ(10px)`;
+      artCenterX = rect.left + rect.width / 2;
+      artCenterY = rect.top + rect.height / 2;
+    }
+    updateCenterCoords();
+    window.addEventListener('resize', updateCenterCoords);
+
+    document.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+
+      if (!tickingMouse) {
+        window.requestAnimationFrame(() => {
+          const rotateY = ((mouseX - artCenterX) / window.innerWidth) * 45; // limit to 45 deg
+          const rotateX = -((mouseY - artCenterY) / window.innerHeight) * 45;
+          centerArtwork.style.transform = `rotateY(${rotateY}deg) rotateX(${rotateX}deg) translateZ(10px)`;
+          tickingMouse = false;
+        });
+        tickingMouse = true;
+      }
     });
   }
 
-  // --- Scroll-based 3D rotation for Tilted Grid ---
+  // --- Throttled Scroll-based 3D rotation for Tilted Grid ---
   const tiltedGrid = document.getElementById('tiltedGrid');
   if (tiltedGrid) {
+    let tickingScroll = false;
     window.addEventListener('scroll', () => {
-      const scrollPosition = window.scrollY;
-      const gridRect = tiltedGrid.getBoundingClientRect();
-      const gridTop = gridRect.top + scrollPosition;
-      
-      const windowHeight = window.innerHeight;
-      const offset = (scrollPosition + windowHeight) - gridTop;
-      
-      if (offset > 0 && gridRect.top < windowHeight) {
-        const factor = (offset / windowHeight) * 15;
-        const rotX = 20 - (factor * 0.5);
-        const rotY = -10 + (factor * 0.3);
-        const rotZ = 5 - (factor * 0.15);
-        
-        tiltedGrid.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg) rotateZ(${rotZ}deg)`;
+      if (!tickingScroll) {
+        window.requestAnimationFrame(() => {
+          const scrollPosition = window.scrollY;
+          const gridRect = tiltedGrid.getBoundingClientRect();
+          const gridTop = gridRect.top + scrollPosition;
+          
+          const windowHeight = window.innerHeight;
+          const offset = (scrollPosition + windowHeight) - gridTop;
+          
+          if (offset > 0 && gridRect.top < windowHeight) {
+            const factor = (offset / windowHeight) * 15;
+            const rotX = 20 - (factor * 0.5);
+            const rotY = -10 + (factor * 0.3);
+            const rotZ = 5 - (factor * 0.15);
+            
+            tiltedGrid.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg) rotateZ(${rotZ}deg)`;
+          }
+          tickingScroll = false;
+        });
+        tickingScroll = true;
       }
+    });
+  }
+
+  // --- Lazy Loading Video Controller via Intersection Observer ---
+  const lazyVideos = document.querySelectorAll('.lazy-video');
+  if ('IntersectionObserver' in window && lazyVideos.length > 0) {
+    const videoObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        const video = entry.target;
+        if (entry.isIntersecting) {
+          if (!video.src) {
+            video.src = video.getAttribute('data-src');
+            video.load();
+          }
+          video.play().catch(err => console.log("Video auto-play blocked: ", err));
+        } else {
+          if (video.src) {
+            video.pause();
+          }
+        }
+      });
+    }, {
+      root: null,
+      rootMargin: '100px',
+      threshold: 0.1
+    });
+
+    lazyVideos.forEach((video) => {
+      videoObserver.observe(video);
+    });
+  } else {
+    // Fallback if IntersectionObserver not supported
+    lazyVideos.forEach((video) => {
+      video.src = video.getAttribute('data-src');
+      video.load();
+      video.autoplay = true;
+      video.loop = true;
+      video.muted = true;
     });
   }
 

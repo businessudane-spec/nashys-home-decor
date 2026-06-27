@@ -36,8 +36,6 @@
         <li><a href="#workshop" class="clickable">Workshop</a></li>
         <li><a href="#about" class="clickable">About</a></li>
         <li><a href="#process" class="clickable">Process</a></li>
-        <li><a href="#explore" class="clickable">Exhibition</a></li>
-        <li><a href="#services" class="clickable">Services</a></li>
       </ul>
     </nav>
 
@@ -77,31 +75,31 @@
         <!-- Card 1 (Portrait) -->
         <div class="art-card portrait">
           <div class="art-card-inner">
-            <img src="assets/gallery-1.png" alt="Plaster Relief">
+            <img src="assets/gallery-1.png" alt="Plaster Relief" loading="lazy">
           </div>
         </div>
         <!-- Card 2 (Landscape) -->
         <div class="art-card landscape">
           <div class="art-card-inner">
-            <img src="assets/gallery-2.png" alt="Fluted Terrazzo">
+            <img src="assets/gallery-2.png" alt="Fluted Terrazzo" loading="lazy">
           </div>
         </div>
         <!-- Card 3 (Portrait) -->
         <div class="art-card portrait">
           <div class="art-card-inner">
-            <img src="assets/gallery-3.png" alt="Clay Limewash">
+            <img src="assets/gallery-3.png" alt="Clay Limewash" loading="lazy">
           </div>
         </div>
         <!-- Card 4 (Landscape) -->
         <div class="art-card landscape">
           <div class="art-card-inner">
-            <img src="assets/gallery-4.png" alt="Metallic Gilded">
+            <img src="assets/gallery-4.png" alt="Metallic Gilded" loading="lazy">
           </div>
         </div>
         <!-- Card 5 (Portrait) -->
         <div class="art-card portrait">
           <div class="art-card-inner">
-            <img src="assets/gallery-5.png" alt="Raw Belgian Linen">
+            <img src="assets/gallery-5.png" alt="Raw Belgian Linen" loading="lazy">
           </div>
         </div>
         
@@ -109,31 +107,31 @@
         <!-- Card 1 (Portrait) -->
         <div class="art-card portrait">
           <div class="art-card-inner">
-            <img src="assets/gallery-1.png" alt="Plaster Relief">
+            <img src="assets/gallery-1.png" alt="Plaster Relief" loading="lazy">
           </div>
         </div>
         <!-- Card 2 (Landscape) -->
         <div class="art-card landscape">
           <div class="art-card-inner">
-            <img src="assets/gallery-2.png" alt="Fluted Terrazzo">
+            <img src="assets/gallery-2.png" alt="Fluted Terrazzo" loading="lazy">
           </div>
         </div>
         <!-- Card 3 (Portrait) -->
         <div class="art-card portrait">
           <div class="art-card-inner">
-            <img src="assets/gallery-3.png" alt="Clay Limewash">
+            <img src="assets/gallery-3.png" alt="Clay Limewash" loading="lazy">
           </div>
         </div>
         <!-- Card 4 (Landscape) -->
         <div class="art-card landscape">
           <div class="art-card-inner">
-            <img src="assets/gallery-4.png" alt="Metallic Gilded">
+            <img src="assets/gallery-4.png" alt="Metallic Gilded" loading="lazy">
           </div>
         </div>
         <!-- Card 5 (Portrait) -->
         <div class="art-card portrait">
           <div class="art-card-inner">
-            <img src="assets/gallery-5.png" alt="Raw Belgian Linen">
+            <img src="assets/gallery-5.png" alt="Raw Belgian Linen" loading="lazy">
           </div>
         </div>
       </div>
@@ -173,16 +171,14 @@
         <div class="workshop-videos-grid">
           <!-- Offline Video Card -->
           <div class="workshop-video-card">
-            <video autoplay loop muted playsinline class="workshop-video">
-              <source src="assets/video-2.mp4" type="video/mp4">
+            <video loop muted playsinline preload="none" class="workshop-video lazy-video" data-src="assets/video-2.mp4">
               Your browser does not support the video tag.
             </video>
             <div class="workshop-video-badge">Offline Studio</div>
           </div>
           <!-- Online Video Card -->
           <div class="workshop-video-card">
-            <video autoplay loop muted playsinline class="workshop-video">
-              <source src="assets/video-3.mp4" type="video/mp4">
+            <video loop muted playsinline preload="none" class="workshop-video lazy-video" data-src="assets/video-3.mp4">
               Your browser does not support the video tag.
             </video>
             <div class="workshop-video-badge">Online Masterclass</div>
@@ -231,7 +227,7 @@
       <div class="about-visual">
         <div class="artwork-frame" style="transform: rotate(-1.5deg);">
           <div class="artwork-inner">
-            <img src="assets/gallery-6.jpg" alt="Textured art creation in the studio" style="width: 100%; height: 100%; object-fit: cover;">
+            <img src="assets/gallery-6.jpg" alt="Textured art creation in the studio" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
           </div>
           <div class="artwork-label">In the Studio, Kochi, India</div>
         </div>
@@ -284,111 +280,7 @@
     </div>
   </section>
 
-  <!-- Dark Section (3D & Chrome Fluid - Reference Image 3) -->
-  <section class="dark-section" id="explore">
-    
 
-    <div class="container">
-      <!-- 3D Header -->
-      <div class="design-driven-header">
-        <h2 class="design-driven-title">
-          DECOR <span>TEXTURES</span>
-        </h2>
-        <p style="max-width: 300px; color: rgba(255,255,255,0.6); font-size: 1rem; line-height: 1.5;">
-          Custom installations and interior canvas paneling trusted by interior designers worldwide.
-        </p>
-      </div>
-
-      <!-- Center 3D Floating Artwork -->
-      <div class="middle-artwork-container">
-        <div class="middle-artwork" id="centerArtwork">
-          <div class="middle-artwork-inner">
-            <img src="assets/hero-texture.jpg" alt="Featured Plaster Art Panel" style="width: 100%; height: 100%; object-fit: cover;">
-          </div>
-        </div>
-      </div>
-
-      <!-- Tilted 3D Grid Section -->
-      <div class="tilted-gallery-container">
-        <span class="section-tag" style="color: rgba(255,255,255,0.6);">Exhibition Showroom</span>
-        <div class="tilted-grid" id="tiltedGrid">
-          <!-- Card 1 -->
-          <div class="tilted-card">
-            <div class="tilted-img-wrap">
-              <img src="assets/gallery-1.jpg" alt="Desert Plaster Wall" style="width: 100%; height: 100%; object-fit: cover;">
-            </div>
-            <h4 class="tilted-card-title">DESERT PLASTER</h4>
-            <span class="tilted-card-tag">Living Room Accent</span>
-          </div>
-
-          <!-- Card 2 -->
-          <div class="tilted-card">
-            <div class="tilted-img-wrap">
-              <img src="assets/gallery-2.jpg" alt="Fluted Clay Panel" style="width: 100%; height: 100%; object-fit: cover;">
-            </div>
-            <h4 class="tilted-card-title">FLUTED CLAY PANEL</h4>
-            <span class="tilted-card-tag">Foyer Architecture</span>
-          </div>
-
-          <!-- Card 3 -->
-          <div class="tilted-card">
-            <div class="tilted-img-wrap">
-              <img src="assets/gallery-3.jpg" alt="Gilded Ochre Finish" style="width: 100%; height: 100%; object-fit: cover;">
-            </div>
-            <h4 class="tilted-card-title">GILDED OCHRE FINISH</h4>
-            <span class="tilted-card-tag">Bed Headboard Wall</span>
-          </div>
-
-          <!-- Card 4 -->
-          <div class="tilted-card">
-            <div class="tilted-img-wrap">
-              <img src="assets/gallery-4.jpg" alt="Raw Concrete Relief" style="width: 100%; height: 100%; object-fit: cover;">
-            </div>
-            <h4 class="tilted-card-title">RAW CONCRETE RELIEF</h4>
-            <span class="tilted-card-tag">Modern Studio Loft</span>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- Services Section -->
-  <section class="container" id="services">
-    <div style="text-align: center; margin-bottom: 3rem;">
-      <span class="section-tag">Bespoke Offerings</span>
-      <h2 class="section-title">Architectural Services</h2>
-    </div>
-
-    <div class="services-grid">
-      <!-- Card 1 -->
-      <div class="service-card">
-        <div class="service-icon">
-          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-        </div>
-        <h3 class="service-title">Bespoke Murals</h3>
-        <p class="service-desc">Custom sized plaster reliefs constructed directly on structural board or heavy linen stretchers to integrate with your interior dimensions.</p>
-      </div>
-
-      <!-- Card 2 -->
-      <div class="service-card">
-        <div class="service-icon">
-          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
-        </div>
-        <h3 class="service-title">Wall Textures</h3>
-        <p class="service-desc">Applying micro-cements, custom fluted plaster coatings, and clay washes directly to walls in luxury lobbies, residences, and offices.</p>
-      </div>
-
-      <!-- Card 3 -->
-      <div class="service-card">
-        <div class="service-icon">
-          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
-        </div>
-        <h3 class="service-title">Color Match Consult</h3>
-        <p class="service-desc">Coordinating with interior architects to ground raw mineral pigments, sands, and clays matching your room's natural lighting.</p>
-      </div>
-    </div>
-  </section>
 
   <!-- Redesigned Split Column Premium Footer (Reference Image 4) -->
   <footer class="decor-footer">
@@ -424,8 +316,6 @@
           <a href="#workshop" class="footer-huge-link clickable">Workshop</a>
           <a href="#about" class="footer-huge-link active clickable">About</a>
           <a href="#process" class="footer-huge-link clickable">Process</a>
-          <a href="#explore" class="footer-huge-link clickable">Exhibition</a>
-          <a href="#services" class="footer-huge-link clickable">Services</a>
         </div>
       </div>
 
